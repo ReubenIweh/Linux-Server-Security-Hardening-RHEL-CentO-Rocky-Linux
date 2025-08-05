@@ -45,7 +45,7 @@ Keep the system and kernel updated to reduce vulnerabilities
   
 `uname -r`
 
-## SSH Hardening
+## 2. SSH Hardening
 
 Restrict remote access and improve SSH security
 
@@ -75,7 +75,7 @@ sudo vi /etc/ssh/sshd_config
 
 - NB: Make sure your user has SSH key-based access before disabling password login.
 
-## Firewall Configuration
+## 3. Firewall Configuration
 
 Allow only specific services using firewalld
 
@@ -101,7 +101,7 @@ Allow only specific services using firewalld
   
 `sudo firewall-cmd --reload`
 
-## Check Listening Network Ports
+## 4. Check Listening Network Ports
 
 Review open ports to detect unnecessary services.
 
@@ -117,7 +117,7 @@ Review open ports to detect unnecessary services.
   
 `sudo lsof -i -P -n`
 
-## Disable Unnecessary Services
+## 5. Disable Unnecessary Services
 
 Reduce attack surface by disabling unneeded services.
 
@@ -129,7 +129,7 @@ Reduce attack surface by disabling unneeded services.
   
 `sudo systemctl disable avahi-daemon --now`
 
-## User Account Security and Password Policy
+## 6. User Account Security and Password Policy
 
 Configure password aging and enforce strong password policies.
 
@@ -159,7 +159,7 @@ Edit /etc/login.defs:
 - `ocredit = -1`
 - `lcredit = -1` 
 
-## Partitioning Best Practices
+## 7. Partitioning Best Practices
 
 Mount sensitive directories with restrictive options (if applicable):
 
@@ -173,20 +173,20 @@ Mount sensitive directories with restrictive options (if applicable):
 
 `sudo mount -a`
 
-## Enforcing SELinux
+## 8. Enforcing SELinux
 
 Use SELinux to enforce mandatory access controls.
 
 - Check SELinux status
-- 
+  
 `sestatus`
 
 - Check mode
-- 
+  
 `getenforce`
 
 - To set to enforcing mode, edit config:
-- 
+  
 `sudo vi /etc/selinux/config`
 
 - Change to:
@@ -201,7 +201,7 @@ Use SELinux to enforce mandatory access controls.
 
 `getenforce`
 
-## Logging and Auditing
+## 9. Logging and Auditing
 
 Enable and configure auditd for event logging.
 
@@ -221,7 +221,7 @@ Enable and configure auditd for event logging.
   
 `sudo auditctl -w /etc/passwd -p wa -k passwd_changes`
 
-## Configure Time and NTP
+## 10. Configure Time and NTP
 
 Ensure your server has correct time settings.
 
@@ -241,7 +241,7 @@ Ensure your server has correct time settings.
 
 `chronyc tracking`
 
-## Install and Configure Fail2Ban
+## 11. Install and Configure Fail2Ban
 
 Protect SSH and other services from brute-force attacks.
 
