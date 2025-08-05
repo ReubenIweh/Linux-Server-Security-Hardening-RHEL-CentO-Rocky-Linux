@@ -59,7 +59,15 @@ sudo vi /etc/ssh/sshd_config
 
 - Recommended settings to modify/add:
   
-<pre> ``` PermitRootLogin no PasswordAuthentication no AllowUsers your_user Protocol 2 MaxAuthTries 3 LoginGraceTime 30 ClientAliveInterval 300 ClientAliveCountMax 2 ``` </pre>
+- `PermitRootLogin no`  
+- `PasswordAuthentication no`  
+- `AllowUsers your_user`  
+- `Protocol 2`  
+- `MaxAuthTries 3`  
+- `LoginGraceTime 30`  
+- `ClientAliveInterval 300`  
+- `ClientAliveCountMax 2`
+
 
 - Restart SSH
   
@@ -85,9 +93,9 @@ Allow only specific services using firewalld
 
 - Allow specific services
   
-`sudo firewall-cmd --permanent --add-service=ssh`
-`sudo firewall-cmd --permanent --add-service=http`
-`sudo firewall-cmd --permanent --add-service=https`
+- `sudo firewall-cmd --permanent --add-service=ssh`
+- `sudo firewall-cmd --permanent --add-service=http`
+- `sudo firewall-cmd --permanent --add-service=https`
 
 - Reload firewall
   
@@ -139,17 +147,17 @@ Configure password aging and enforce strong password policies.
 
 Edit /etc/login.defs:
 
-`PASS_MAX_DAYS   90
+<pre> ``` PASS_MAX_DAYS   90
 PASS_MIN_DAYS   10
-PASS_WARN_AGE   7`
+PASS_WARN_AGE   7  ``` </pre>
 
 - Edit /etc/security/pwquality.conf for password strength rules:
   
-`minlen = 12
+ ``` </pre> minlen = 12
 dcredit = -1
 ucredit = -1
 ocredit = -1
-lcredit = -1`
+lcredit = -1  ``` </pre>
 
 ## Partitioning Best Practices
 
@@ -157,8 +165,8 @@ Mount sensitive directories with restrictive options (if applicable):
 
 - Edit /etc/fstab to include:
   
-`tmpfs /tmp tmpfs defaults,noexec,nosuid,nodev 0 0
-/dev/sdX /var tmpfs defaults,nodev,nosuid 0 2`
+- `tmpfs /tmp tmpfs defaults,noexec,nosuid,nodev 0 0
+- `/dev/sdX /var tmpfs defaults,nodev,nosuid 0 2`
 
 - Apply the changes:
 
@@ -181,12 +189,15 @@ Use SELinux to enforce mandatory access controls.
 `sudo vi /etc/selinux/config`
 
 - Change to:
+
 `SELINUX=enforcing`
 
 - Reboot for changes to take effect
+
 `sudo reboot`
 
 - Verify
+
 `getenforce`
 
 ## Logging and Auditing
