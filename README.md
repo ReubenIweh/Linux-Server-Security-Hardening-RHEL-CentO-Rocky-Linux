@@ -147,17 +147,17 @@ Configure password aging and enforce strong password policies.
 
 Edit /etc/login.defs:
 
-<pre> ``` PASS_MAX_DAYS   90
-PASS_MIN_DAYS   10
-PASS_WARN_AGE   7  ``` </pre>
+- `PASS_MAX_DAYS   90`
+- `PASS_MIN_DAYS   10`
+- `PASS_WARN_AGE   7`
 
 - Edit /etc/security/pwquality.conf for password strength rules:
   
- ``` </pre> minlen = 12
-dcredit = -1
-ucredit = -1
-ocredit = -1
-lcredit = -1  ``` </pre>
+- `minlen = 12`
+- `dcredit = -1`
+- `ucredit = -1`
+- `ocredit = -1`
+- `lcredit = -1` 
 
 ## Partitioning Best Practices
 
@@ -166,6 +166,7 @@ Mount sensitive directories with restrictive options (if applicable):
 - Edit /etc/fstab to include:
   
 - `tmpfs /tmp tmpfs defaults,noexec,nosuid,nodev 0 0
+  
 - `/dev/sdX /var tmpfs defaults,nodev,nosuid 0 2`
 
 - Apply the changes:
