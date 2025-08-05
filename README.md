@@ -5,11 +5,11 @@ It includes step-by-step instructions with copy-paste friendly commands to help 
 
 📁 Project Structure
 
-`linux-hardening/
+<pre> ``` linux-hardening/
  ┣ 📜 README.md        # This guide
  ┣ 📁 scripts/         # Optional: automation scripts for hardening tasks
  ┣ 📁 docs/            # Detailed sub-guides or references
- ┗ 📄 .gitignore`
+ ┗ 📄 .gitignore ``` </pre>
 
  📑 **Table of Contents**
 - [System Updates and Kernel Patching](#system-updates-and-kernel-patching)
@@ -59,14 +59,7 @@ sudo vi /etc/ssh/sshd_config
 
 - Recommended settings to modify/add:
   
-`PermitRootLogin no`
-`PasswordAuthentication no`
-`AllowUsers your_user`
-`Protocol 2`
-`MaxAuthTries 3`
-`LoginGraceTime 30`
-`ClientAliveInterval 300`
-`ClientAliveCountMax 2`
+<pre> ``` PermitRootLogin no PasswordAuthentication no AllowUsers your_user Protocol 2 MaxAuthTries 3 LoginGraceTime 30 ClientAliveInterval 300 ClientAliveCountMax 2 ``` </pre>
 
 - Restart SSH
   
